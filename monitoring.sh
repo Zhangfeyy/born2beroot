@@ -32,4 +32,9 @@ cpu_percentage=$(echo "scale=1; 100 - $cpu_uti" | bc)
 echo "CPU load: $cpu_percentage%"
 reboot=$(who -b | awk '{print $3,$4}')
 echo "reboot: $reboot"
-
+lvm="No"
+if lsblk | grep -w "lvm" > /dev/null ; then
+	lvm="Yes"
+fi
+echo "LVM Use: $lvm"
+net_con=$#Connections TCP : 1 ESTABLISHED
